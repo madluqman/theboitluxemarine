@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>The Boit Luxe Marine - Reservation</title>
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      margin: 0;
+      padding: 0;
+      background: url('backgroundbooking.jpg') no-repeat center center fixed;
+      background-size: cover;
+    }
+
+    .overlay {
+      background: rgba(255, 255, 255, 0.1);
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+
+    .container {
+      max-width: 600px;
+      background: white;
+      padding: 50px;
+      border-radius: 12px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+    }
+
+    h2 {
+      text-align: center;
+      color: #003d66;
+      font-weight: 600;
+      margin-bottom: 25px;
+    }
+
+    .form-group {
+      margin-bottom: 18px;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 6px;
+      font-weight: 500;
+      color: #333;
+    }
+
+    input, select, textarea {
+      width: 100%;
+      padding: 12px;
+      font-size: 15px;
+      font-family: 'Poppins', sans-serif;
+      border: 1px solid #c5cbd4;
+      border-radius: 6px;
+      transition: border-color 0.3s;
+    }
+
+    input:focus, select:focus, textarea:focus {
+      border-color: #005d99;
+      outline: none;
+    }
+
+    .small {
+      font-size: 13px;
+      color: #555;
+      margin-top: 4px;
+    }
+
+    button {
+      width: 100%;
+      padding: 14px;
+      background: #005d99;
+      color: white;
+      font-size: 16px;
+      font-family: 'Poppins', sans-serif;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      font-weight: 500;
+      transition: background 0.3s;
+    }
+
+    button:hover {
+      background: #004c80;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="overlay">
+    <div class="container">
+      <h2>Yacht Reservation Form</h2>
+      <form id="reservationForm">
+        <div class="form-group">
+          <label for="boat">Select Yacht</label>
+          <select id="boat" required>
+            <option value="">-- Choose a yacht --</option>
+            <option value="Jetski">Jetski (2 pax)</option>
+            <option value="Kayak">Kayak (2 pax)</option>
+            <option value="Princess 50">Princess 50 (12 pax)</option>
+            <option value="Fairline Squadron 42">Fairline Squadron 42(10 pax)</option>
+            <option value="Lagoon 450 Catamaran">Lagoon 450 Catamaran (20 pax)</option>
+            <option value="Monte Carlo MC5">Monte Carlo MC5 (15 pax)</option>
+            <option value="Bavaria Cruiser 46">Bavaria Cruiser 46 (6 pax)</option>
+            <option value="Azimut Atlantis 45">Azimut Atlantis 45 (8 pax)</option>
+
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="location">Charter Location</label>
+          <select id="location" required>
+            <option value="">-- Select location --</option>
+            <option value="Puteri Harbour">Puteri Harbour</option>
+            <option value="Senibong Cove">Senibong Cove</option>
+            <option value="Langkawi">Langkawi</option>
+            <option value="Penang">Penang</option>
+            <option value="Port Dickson">Port Dickson</option>
+            <option value="Pulau Kapas">Pulau Kapas</option>
+            <option value="Pulau Redang">Pulau Redang</option>
+            <option value="Pulau Tioman">Pulau Tioman</option>
+            <option value="Pulau Perhentian">Pulau Perhentian</option>
+            <option value="Melaka">Melaka</option>
+            <option value="Pulau Pangkor">Pulau Pangkor</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="datetime">Date & Time</label>
+          <input type="datetime-local" id="datetime" required>
+          <div class="small">Pick your start time</div>
+        </div>
+
+        <div class="form-group">
+          <label for="guests">Number of Guests</label>
+          <input type="number" id="guests" min="1" max="30" value="1" required>
+          <div class="small">Maximum depends on yacht selected</div>
+        </div>
+
+        <div class="form-group">
+          <label for="duration">Duration (hours)</label>
+          <input type="number" id="duration" min="1" max="24" value="4" required>
+        </div>
+
+        <div class="form-group">
+          <label for="name">Full Name</label>
+          <input type="text" id="name" placeholder="e.g. Jane Doe" required>
+        </div>
+
+        <div class="form-group">
+          <label for="email">Email Address</label>
+          <input type="email" id="email" placeholder="your@example.com" required>
+        </div>
+
+        <div class="form-group">
+          <label for="requests">Special Requests</label>
+          <textarea id="requests" rows="4" placeholder="e.g. catering, itinerary notes"></textarea>
+        </div>
+
+        <button type="submit">Request Reservation</button>
+      </form>
+    </div>
+  </div>
+
+  <script>
+    document.getElementById("reservationForm").addEventListener("submit", function(e) {
+      e.preventDefault();
+
+      const boat = document.getElementById("boat").value;
+      const location = document.getElementById("location").value;
+      const dt = document.getElementById("datetime").value;
+      const guests = document.getElementById("guests").value;
+      const duration = document.getElementById("duration").value;
+      const name = document.getElementById("name").value;
+      const email = document.getElementById("email").value;
+      const requests = document.getElementById("requests").value;
+
+      const capacities = {
+        "MV NomNom": 10,
+        "Sea Wolf": 25,
+        "Langka": 15,
+        "Princess Amalin": 50
+      };
+
+      if (guests > capacities[boat]) {
+        return alert(`"${boat}" allows max ${capacities[boat]} guests.`);
+      }
+
+      alert(`Thanks ${name}! Your request for ${boat} at ${location} on ${new Date(dt).toLocaleString()} for ${guests} pax (${duration}h) has been sent. We'll contact you at ${email}.`);
+      this.reset();
+    });
+  </script>
+
+</body>
+</html>

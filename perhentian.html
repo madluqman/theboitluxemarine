@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<head>
+  <meta charset="UTF-8">
+  <title>Pulau Perhentian</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      margin: 0;
+      background: #f4f9ff;
+    }
+
+    header {
+      background-color: #001f33;
+      padding: 20px;
+      color: white;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    header h1 {
+      font-size: 1.8rem;
+    }
+
+    nav {
+      margin-left: auto;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 15px;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      padding: 8px 15px;
+      background-color: #003b5c;
+      border-radius: 5px;
+      transition: background-color 0.3s ease;
+    }
+
+    nav a:hover {
+      background-color: #005d89;
+    }
+
+    .dropdown {
+      position: relative;
+    }
+
+    .dropdown-content {
+      display: none;
+      position: absolute;
+      background-color: #003f5c;
+      min-width: 200px;
+      box-shadow: 0px 4px 8px rgba(0,0,0,0.2);
+      z-index: 1;
+    }
+
+    .dropdown-content a {
+      display: block;
+      padding: 10px;
+      color: white;
+    }
+
+    .dropdown:hover .dropdown-content {
+      display: block;
+    }
+
+    .highlight-top {
+      background-color: #f0c75e !important;
+      font-weight: bold;
+    }
+
+    .menu-container {
+      width: 240px;
+    }
+
+    .w3-bar-item:hover {
+      background-color: #eee !important;
+    }
+
+    .fade-in {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: all 1s ease;
+    }
+
+    .fade-in.show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .hero-section {
+      background-image: url('Puteri Harbour.jpg');
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .hero-section h1 {
+      font-size: 60px;
+      color: white;
+      text-shadow: 2px 2px 4px rgba(0,0,0,0.7);
+    }
+
+    .section-content {
+      max-width: 1000px;
+      margin: auto;
+      padding: 64px 24px;
+      line-height: 1.8;
+    }
+
+    h2 {
+      text-align: center;
+      font-size: 36px;
+      margin-bottom: 24px;
+    }
+
+    footer {
+      background-color: #001f33;
+      color: white;
+      text-align: center;
+      padding: 30px 20px;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    .social-icons a {
+      margin: 0 10px;
+      color: white;
+      font-size: 18px;
+    }
+
+    .social-icons a:hover {
+      color: #f0c75e;
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <h1>The Boit Luxe Marine</h1>
+  <nav>
+    <div class="dropdown"><a href="index.html">Home</a></div>
+    <div class="dropdown">
+      <a href="#">Location ▾</a>
+      <div class="dropdown-content">
+        <a href="puteri.html">Puteri Harbour</a>
+        <a href="senibong.html">Senibong Cove</a>
+        <a href="langkawi.html">Langkawi</a>
+        <a href="penang.html">Penang</a>
+        <a href="port.html">Port Dickson</a>
+        <a href="kapas.html">Pulau Kapas</a>
+        <a href="redang.html">Pulau Redang</a>
+        <a href="tioman.html">Pulau Tioman</a>
+        <a href="perhentian.html">Pulau Perhentian</a>
+        <a href="melaka.html">Melaka</a>
+        <a href="pangkor.html">Pulau Pangkor</a>
+      </div>
+    </div>
+    <div class="dropdown">
+      <a href="#">Water Sports ▾</a>
+      <div class="dropdown-content">
+        <a href="water.html">Kayaking</a>
+        <a href="water.html">Jet Ski around the Island!!</a>
+      </div>
+    </div>
+    <div class="dropdown">
+      <a href="#">Sales / Services ▾</a>
+      <div class="dropdown-content">
+        <a href="yachtsales.html">Yacht Sales</a>
+        <a href="yachtrental.html">Yacht Rental</a>
+      </div>
+    </div>
+    <div class="dropdown">
+      <a href="#">Booking ▾</a>
+      <div class="dropdown-content">
+        <a href="rentalcontact.html">Booking Yacht</a>
+        <a href="rentalcontact.html">Booking Jet Ski</a>
+      </div>
+    </div>
+  </nav>
+</header>
+
+
+  <div class="hero-section">
+    <h1 class="w3-xxxlarge fade-in" id="scroll-title">Pulau Perhentian</h1>
+  </div>
+
+
+  <div class="w3-white" id="perhentian">
+    <div class="section-content">
+      <h2>Pulau Perhentian</h2>
+      <p>
+        Pulau Perhentian is a pair of tropical isles off the northeastern coast of Malaysia, famed for their vibrant coral reefs, crystal-clear bays, and lively island atmosphere—a top choice for charter yachts and snorkeling adventures.
+      </p>
+      <p>
+        With calm azure waters and easy access from the mainland, the Perhentians offer ideal anchorages, beachfront resorts, and excellent snorkeling just steps off the boat. Expect encounters with turtles, clownfish, and lively reef life.
+      </p>
+      <p>
+        Whether pacing out a snorkeling adventure, diving through underwater caves, or enjoying beachside barbecue supper, Pulau Perhentian combines natural wonder and island charm in every moment.
+      </p>
+    </div>
+
+    <div class="w3-content" style="max-width:1000px; margin:auto; padding:40px 0;">
+      <div class="w3-row-padding w3-center" style="overflow-x:auto; white-space:nowrap;">
+        <img src="perhentian1.jpg" style="width:250px; height:160px; object-fit:cover; display:inline-block; margin-right:10px;">
+        <img src="perhentian2.jpg" style="width:250px; height:160px; object-fit:cover; display:inline-block; margin-right:10px;">
+        <img src="perhentian3.jpg" style="width:250px; height:160px; object-fit:cover; display:inline-block; margin-right:10px;">
+        <img src="perhentian4.jpg" style="width:250px; height:160px; object-fit:cover; display:inline-block; margin-right:10px;">
+      </div>
+    </div>
+
+    <div class="section-content">
+      <p>
+        Perfect for day charters, snorkel trips, or a relaxed overnight stay, Pulau Perhentian promises unforgettable coral encounters, island breezes, and moments of pure tropical bliss.
+      </p>
+    </div>
+  </div>
+
+  <script>
+    window.addEventListener('scroll', function () {
+      const title = document.getElementById('scroll-title');
+      const rect = title.getBoundingClientRect();
+      if (rect.top <= window.innerHeight - 100) {
+        title.classList.add('show');
+      }
+    });
+  </script>
+
+  <footer>
+    <p>&copy; 2025 The Boit Luxe Marine. All rights reserved.</p>
+    <div class="social-icons">
+      <a href="https://www.facebook.com/boitluxe" target="_blank"><i class="fab fa-facebook-f"></i></a>
+      <a href="https://www.instagram.com/boitluxemarineservices" target="_blank"><i class="fab fa-instagram"></i></a>
+      <a href="https://www.tiktok.com/@boitluxe" target="_blank"><i class="fab fa-tiktok"></i></a>
+    </div>
+  </footer>
+
+</body>
+</html>
+

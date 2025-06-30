@@ -1,0 +1,531 @@
+<!DOCTYPE html>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Water Sport Activities</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      background-color: white;
+      color: black;
+    } 
+
+        header {
+      background-color: #001f33;
+      padding: 20px;
+      color: white;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    header h1 {
+      font-size: 1.8rem;
+    }
+
+    nav {
+      margin-left: auto;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 15px;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      padding: 8px 15px;
+      background-color: #003b5c;
+      border-radius: 5px;
+      transition: background-color 0.3s ease;
+    }
+
+    nav a:hover {
+      background-color: #005d89;
+    }
+
+    .dropdown {
+      position: relative;
+    }
+
+    .dropdown-content {
+      display: none;
+      position: absolute;
+      background-color: #003f5c;
+      min-width: 200px;
+      box-shadow: 0px 4px 8px rgba(0,0,0,0.2);
+      z-index: 1;
+    }
+
+    .dropdown-content a {
+      display: block;
+      padding: 10px;
+      color: white;
+    }
+
+    .dropdown:hover .dropdown-content {
+      display: block;
+    }
+
+    .highlight-top {
+      background-color: #f0c75e !important;
+      font-weight: bold;
+    }
+
+    .menu-container {
+      width: 240px;
+    }
+
+    .w3-bar-item:hover {
+      background-color: #eee !important;
+    }
+
+    .fade-in {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: all 1s ease;
+    }
+
+    .fade-in.show {
+      opacity: 1;
+      transform: translateY(0);
+
+    }
+
+    .tab-buttons {
+      display: flex;
+      justify-content: center;
+      margin-top: 40px;
+    }
+
+    .tab-buttons button {
+      padding: 12px 30px;
+      margin: 0 10px;
+      font-size: 16px;
+      background-color: #f1f1f1;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    .tab-buttons button.active {
+      background-color: #04C2C9;
+      color: white;
+      font-weight: bold;
+    }
+
+    .tab-content {
+      display: none;
+      padding: 40px 20px;
+      max-width: 1200px;
+      margin: auto;
+    }
+
+    .tab-content.active {
+      display: block;
+    }
+
+    .section-title {
+      text-align: center;
+      font-size: 36px;
+      margin-bottom: 30px;
+    }
+
+    .image-gallery {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 15px;
+      justify-content: center;
+      margin-bottom: 40px;
+    }
+
+    .image-gallery img {
+      width: 100%;
+      max-width: 270px;
+      border-radius: 10px;
+    }
+
+    .price-row {
+      display: flex;
+      gap: 20px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .price-card {
+      background-color: white;
+      border: 2px solid #f3e2a9;
+      padding: 25px;
+      width: 300px;
+      border-radius: 10px;
+      box-shadow: 0 0 6px rgba(0,0,0,0.1);
+      text-align: center;
+    }
+
+    .price-card h3 {
+      margin-bottom: 10px;
+    }
+
+    .price-card .main-price {
+      color: #d2b36a;
+      font-size: 28px;
+      font-weight: bold;
+    }
+
+    .booking-btn {
+      display: inline-block;
+      margin-top: 20px;
+      padding: 12px 25px;
+      background-color: gold;
+      color: chocolate;
+      font-weight: bold;
+      text-decoration: none;
+      border-radius: 5px;
+      text-transform: uppercase;
+      font-size: 14px;
+    }
+
+    .terms {
+      font-size: 14px;
+      margin-top: 30px;
+      max-width: 800px;
+      margin-inline: auto;
+    }
+
+    .slider-wrapper {
+      position: relative;
+      margin: 40px auto;
+      max-width: 1100px;
+      overflow: hidden;
+    }
+
+    .slider {
+      display: flex;
+      gap: 15px;
+      overflow-x: auto;
+      scroll-behavior: smooth;
+      padding: 10px;
+    }
+
+    .slider img {
+      width: 250px;
+      height: 160px;
+      border-radius: 10px;
+      flex-shrink: 0;
+      object-fit: cover;
+    }
+
+    .slider-button {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background-color: #04C2C9;
+      color: white;
+      border: none;
+      font-size: 24px;
+      padding: 8px 16px;
+      cursor: pointer;
+      z-index: 2;
+    }
+
+    .slider-button.left {
+      left: 0;
+    }
+
+    .slider-button.right {
+      right: 0;
+    }
+
+    .kayak-description {
+      max-width: 900px;
+      margin: 40px auto 0;
+      font-size: 16px;
+      line-height: 1.6;
+    }
+
+    .footer-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      padding: 50px 40px;
+      background-color: #fff;
+      color: #333;
+      font-family: Arial, sans-serif;
+      font-size: 15px;
+      border-top: 1px solid #ccc;
+    }
+
+    .footer-column {
+      flex: 1;
+      min-width: 200px;
+      margin: 20px;
+    }
+
+    .footer-column h4 {
+      font-size: 16px;
+      margin-bottom: 15px;
+      font-weight: bold;
+    }
+
+    .footer-column ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    .footer-column ul li {
+      margin: 10px 0;
+      border-bottom: 1px solid #ddd;
+      padding-bottom: 10px;
+    }
+
+    .wechat-img, .listing-logos img {
+      width: 120px;
+      margin-top: 10px;
+    }
+
+    .listing-logos img {
+      display: block;
+      margin-bottom: 10px;
+      width: 130px;
+    }
+
+    .contact-btn {
+      background-color: #deb76a;
+      color: white;
+      padding: 8px 20px;
+      border-radius: 20px;
+      font-size: 14px;
+      margin-top: 5px;
+      display: inline-block;
+      text-align: center;
+      text-decoration: none;
+    }
+
+    .footer-column address {
+      font-style: normal;
+      line-height: 1.8;
+    }
+
+    @media (max-width: 768px) {
+      .footer-container {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .footer-column {
+        width: 100%;
+        margin-bottom: 30px;
+      }
+    }
+  </style>
+</head>
+
+<header>
+  <h1>The Boit Luxe Marine</h1>
+  <nav>
+    <div class="dropdown"><a href="index.html">Home</a></div>
+    <div class="dropdown">
+      <a href="#">Location ▾</a>
+      <div class="dropdown-content">
+        <a href="puteri.html">Puteri Harbour</a>
+        <a href="senibong.html">Senibong Cove</a>
+        <a href="langkawi.html">Langkawi</a>
+        <a href="penang.html">Penang</a>
+        <a href="port.html">Port Dickson</a>
+        <a href="kapas.html">Pulau Kapas</a>
+        <a href="redang.html">Pulau Redang</a>
+        <a href="tioman.html">Pulau Tioman</a>
+        <a href="perhentian.html">Pulau Perhentian</a>
+        <a href="melaka.html">Melaka</a>
+        <a href="pangkor.html">Pulau Pangkor</a>
+      </div>
+    </div>
+    <div class="dropdown">
+      <a href="#">Water Sports ▾</a>
+      <div class="dropdown-content">
+        <a href="water.html">Kayaking</a>
+        <a href="water.html">Jet Ski around the Island!!</a>
+      </div>
+    </div>
+    <div class="dropdown">
+      <a href="#">Sales / Services ▾</a>
+      <div class="dropdown-content">
+        <a href="yachtsales.html">Yacht Sales</a>
+        <a href="yachtrental.html">Yacht Rental</a>
+      </div>
+    </div>
+    <div class="dropdown">
+      <a href="#">Booking ▾</a>
+      <div class="dropdown-content">
+        <a href="rentalcontact.html">Booking Yacht</a>
+        <a href="rentalcontact.html">Booking Jet Ski</a>
+      </div>
+    </div>
+  </nav>
+</header>
+
+
+
+<body>
+  <div class="tab-buttons">
+    <button class="tab-link active" onclick="openTab(event, 'jetski')">JET SKI</button>
+    <button class="tab-link" onclick="openTab(event, 'kayak')">KAYAK</button>
+  </div>
+
+  <div id="jetski" class="tab-content active">
+    <div class="section-title">JET SKI</div>
+    <div class="image-gallery">
+      <img src="jetski1.jpg" alt="Jet Ski 1">
+      <img src="jetski2.jpg" alt="Jet Ski 2">
+      <img src="jetski3.jpg" alt="Jet Ski 3">
+      <img src="jetski4.jpg" alt="Jet Ski 4">
+    </div>
+
+    <div class="price-row">
+      <div class="price-card">
+        <h3>Solo</h3>
+        <div class="main-price">RM 580 / hour</div>
+        <p>RM 250 (15 min)</p>
+        <p>RM 1,800 (4–5 hours)</p>
+        <a href="https://wa.me/60123456789" class="booking-btn" target="_blank">Booking Now</a>
+      </div>
+      <div class="price-card">
+        <h3>Twin</h3>
+        <div class="main-price">RM 780 / hour</div>
+        <p>-</p>
+        <p>RM 2,600 (4–5 hours)</p>
+        <a href="https://wa.me/60123456789" class="booking-btn" target="_blank">Booking Now</a>
+      </div>
+    </div>
+
+    <div class="terms">
+      <ul>
+        <li>Please note that the above rates are for subsequent direct bookings with Sea-Doo Malaysia.</li>
+        <li>There will be a RM 300 deposit for fuel consumption deduction.</li>
+        <li>Rates and availability are subject to change without notice.</li>
+        <li>PPCDL and SEA-DOO confidence courses are required.</li>
+        <li>Sea-Doo Singapore Terms & Conditions apply.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div id="kayak" class="tab-content">
+    <div class="section-title">KAYAK & STAND UP PADDLE BOARD</div>
+
+
+    <div class="slider-wrapper">
+      <button class="slider-button left" onclick="scrollKayak(-1)">‹</button>
+      <div id="kayak-slider" class="slider">
+        <img src="kayak1.jpg" alt="Kayak 1">
+        <img src="kayak2.jpg" alt="Kayak 2">
+        <img src="kayak3.jpg" alt="Kayak 3">
+        <img src="kayak4.jpg" alt="Kayak 4">
+        <img src="kayak5.jpg" alt="Kayak 5">
+        <img src="kayak6.jpg" alt="Kayak 6">
+        <img src="kayak7.jpg" alt="Kayak 7">
+        <img src="kayak8.jpg" alt="Kayak 8">
+      </div>
+      <button class="slider-button right" onclick="scrollKayak(1)">›</button>
+    </div>
+
+    <div class="kayak-description">
+      <ul>
+        <li>Singapore’s First Leg Pedal Kayak Adventure" by the famous "Aileron Yak    Adventure</li>
+        <li>Why Choose Leg Pedal Kayak over Traditional Kayak</li>
+        <li>Faster speed and kids can join in as it is easier to use</li>
+        <li>Safer and hands-free for that instaworthy picture moment</li>
+        <li>Not Energy Intensive hence longer kayaking ride</li>
+        <li>Onboard a AILERON 11 Leg Pedal Kayak to explore the serene and rustic Seletar island area</li>
+        <li>Explore Mouth of Simpang River, enter the mangroves of Khatib Bongsu</li>
+        <li>Gaze at the view of a local kelong and end your adventurous day at Seletar Island</li>
+      </ul>
+      <div style="text-align:center;">
+        <a href="https://wa.me/60123456789" class="booking-btn" target="_blank">Booking Now</a>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    &copy; 2025 The Boit Luxe Marine. All rights reserved.
+  </footer>
+
+  <script>
+    function openTab(evt, tabName) {
+      const tabcontent = document.getElementsByClassName("tab-content");
+      const tablinks = document.getElementsByClassName("tab-link");
+      for (let i = 0; i < tabcontent.length; i++) {
+        tabcontent[i].classList.remove("active");
+      }
+      for (let i = 0; i < tablinks.length; i++) {
+        tablinks[i].classList.remove("active");
+      }
+      document.getElementById(tabName).classList.add("active");
+      evt.currentTarget.classList.add("active");
+    }
+
+    function scrollKayak(direction) {
+      const slider = document.getElementById('kayak-slider');
+      const scrollAmount = 270;
+      slider.scrollBy({
+        left: direction * scrollAmount,
+        behavior: 'smooth'
+      });
+    }
+  </script>
+</body>
+
+
+  <div class="footer-container">
+    <div class="footer-column">
+      <h4>QUICK LINKS</h4>
+      <ul>
+        <li>› Yachts Langkawi</li>
+        <li>› Yacht Reservation</li>
+        <li>› Itinerary</li>
+        <li>› Terms and Conditions</li>
+        <li>› Contact/FAQ</li>
+      </ul>
+    </div>
+    <div class="footer-column">
+ 
+            <p>INSTAGRAM: BOITLUXEMARINESERVICES</p>
+    </div>
+    <div class="footer-column">
+      <h4>LISTED ON</h4>
+      <div class="listing-logos">
+        <img src="logo-bridestory.png" alt="Bridestory" />
+        <img src="logo-expat.png" alt="Expat Blog" />
+        <img src="logo-onboard.png" alt="Onboard Online" />
+        <img src="logo-yachtingpages.png" alt="Yachting Pages" />
+        <img src="logo-directory.png" alt="Yacht Directory" />
+        <img src="logo-venuerific.png" alt="Venuerific" />
+      </div>
+    </div>
+    <div class="footer-column">
+      <h4>LOCATE US</h4>
+      <address>
+        <strong>TYC Charters Sdn Bhd</strong><br />
+        #03-27, Block A Pusat Perdagangan Ekoflora,<br />
+        Jalan Ekoflora 7/3, Taman Ekoflora,<br />
+        81100 Johor Bahru, Johor, Malaysia.<br /><br />
+        <strong>Business Registration</strong><br />
+        1395373-H
+      </address>
+    </div>
+    <div class="footer-column">
+      <h4>CONTACT US</h4>
+      <p>WEEN: +60 17-3484408<br />
+        <a href="https://wa.me/60123456789" class="booking-btn" target="_blank">WHATSAPP WEEN </a>
+      </p>
+      <p>KIMI: +60 14-2519678<br />
+        <a href="https://wa.me/60123456789" class="booking-btn" target="_blank">WHATSAPP KIMI</a>
+      </p>
+    </div>
+  </div>
+</body>
+</html>
+
+
+
+     
